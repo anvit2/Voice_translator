@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_height="match_parent"
+    tools:context=".TranslateFragment">
+
+   <com.google.android.material.textfield.TextInputLayout
+       android:id="@+id/textInputLayout"
+       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+       android:layout_width="match_parent"
+       android:layout_height="100dp"
+       android:layout_marginStart="8dp"
+       android:layout_marginTop="8dp"
+       android:layout_marginLeft="8dp"
+       android:layout_marginEnd="8dp"
+       android:layout_marginBottom="8dp"
+       android:inputType="textMultiLine"
+       app:layout_constraintBottom_toTopOf="@+id/sourceLangSelector"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       tools:ignore="MissingClass,MissingConstraints,UnknownId" >
+
+
+<com.google.android.material.textfield.TextInputEditText
+    android:id="@+id/sourceText"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:hint="Source Text"/>
+</com.google.android.material.textfield.TextInputLayout>
+    
+    <Spinner
+        android:id="@+id/sourceLangSelector"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@id/buttonSyncSource"
+        app:layout_constraintEnd_toStartOf="@id/buttonSwitchLang"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        android:gravity="center_horizontal" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSwitchLang"
+        style="@style/IconOnlyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text=""
+        app:icon="@drawable/ic_baseline_compare_arrows_24"
+        app:layout_constraintEnd_toStartOf="@+id/targetLangSelector"
+        app:layout_constraintStart_toEndOf="@+id/sourceLangSelector"
+        app:layout_constraintTop_toTopOf="@+id/sourceLangSelector"/>
+
+    <Spinner
+        android:id="@+id/targetLangSelector"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/sourceLangSelector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonSwitchLang"
+        app:layout_constraintTop_toTopOf="@id/sourceLangSelector"
+        android:gravity="center_horizontal" />
+    
+    <ToggleButton
+        android:id="@+id/buttonSyncSource"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
+        android:textOff="Download Model"
+        android:textOn="Delete Model"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toTopOf="@id/downloadModels"
+        app:layout_constraintEnd_toEndOf="@+id/sourceLangSelector"
+        app:layout_constraintStart_toStartOf="@+id/sourceLangSelector"
+        app:layout_constraintTop_toBottomOf="@+id/sourceLangSelector"/>
+
+
+    <ToggleButton
+        android:id="@+id/buttonSyncTarget"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
+        android:textOff="Download Model"
+        android:textOn="Delete Model"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@id/buttonSyncSource"
+        app:layout_constraintEnd_toEndOf="@+id/targetLangSelector"
+        app:layout_constraintStart_toStartOf="@+id/targetLangSelector"
+        app:layout_constraintTop_toTopOf="@+id/buttonSyncSource"/>
+
+    <TextView
+        android:id="@+id/downloadModels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Download Model"
+        app:layout_constraintBottom_toTopOf="@id/targetText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSyncSource"/>
+
+
+    <TextView
+        android:id="@+id/targetText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="top"
+        android:text="Translated Text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/downloadModels"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
